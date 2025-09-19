@@ -38,6 +38,48 @@ cp .env.example .env
    GEMINI_API_KEY=your_actual_api_key_here
    ```
 
+# Receipt Analytics Engine
+
+NestJS backend service that ingests receipt images and returns structured financial data (vendor, items, tax, totals) using Google Gemini (multi‑modal) AI.
+
+> Formerly named: Receipt Extractor Backend. Repository renamed to `receipt-analytics-engine`.
+
+## 🚀 Features Implemented
+
+- **Receipt Extraction Service**: Processes images using Google Gemini 1.5 Flash AI model
+- **File Upload API**: Accepts .jpg, .jpeg, .png, and .webp image files
+- **Data Validation**: Validates AI responses and handles various error scenarios
+- **Image Storage**: Saves uploaded images and serves them via static URLs
+- **Comprehensive Testing**: Full unit test coverage (17 test cases)
+- **Development Endpoints**: Test endpoints for easy sample receipt processing
+
+## 📋 Requirements
+
+- Node.js v18+
+- npm v10+
+- Google Gemini API Key
+
+## 🛠  Setup Instructions
+
+### 1. Environment Setup
+
+```bash
+# Install dependencies
+npm install
+
+# Copy environment template
+cp .env.example .env
+```
+
+### 2. Get Google Gemini API Key
+
+1. Visit [Google AI Studio](https://makersuite.google.com/app/apikey)
+2. Create a new API key
+3. Add it to your `.env` file:
+   ```
+   GEMINI_API_KEY=your_actual_api_key_here
+   ```
+
 ### 3. Start the Application
 
 ```bash
@@ -143,7 +185,7 @@ curl http://localhost:3000/test/receipts
 4. **Key**: `file` (File type)
 5. **Value**: Select image file
 
-## 🏗 Project Structure
+## 🗂 Project Structure
 
 ```
 src/
@@ -191,7 +233,7 @@ The application handles various error scenarios:
 - **Output**: Structured JSON with receipt data
 - **Validation**: Response format validation and data integrity checks
 
-## 🔐 Environment Variables
+## 🧩 Environment Variables
 
 Required environment variables:
 
@@ -203,7 +245,7 @@ GEMINI_API_KEY=your_gemini_api_key_here
 PORT=3000
 ```
 
-## 📈 Production Considerations
+## 🏁 Production Considerations
 
 For production deployment, consider:
 
@@ -214,7 +256,7 @@ For production deployment, consider:
 5. **Monitoring**: Add logging, metrics, and health checks
 6. **Caching**: Implement Redis caching for frequently accessed data
 
-## 🐛 Troubleshooting
+## 🧰 Troubleshooting
 
 ### Common Issues
 
@@ -233,4 +275,4 @@ npm run start:debug
 
 ## 📄 License
 
-This project is for assessment purposes and is not licensed for commercial use.
+This project is for assessment / demo purposes and is not licensed for commercial use.
